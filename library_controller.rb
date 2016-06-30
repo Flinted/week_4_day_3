@@ -10,3 +10,9 @@ get '/library' do
   @albums = Album.all()
   erb(:'library/index')
 end
+
+# get '/library/search' do
+#   @artist = Artist.search(params[:search])
+ 
+#   redirect to ('/artists/#{@artist.id}')
+# end

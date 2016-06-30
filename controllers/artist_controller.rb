@@ -8,6 +8,11 @@ get '/artists' do
   erb(:'artists/index')
 end
 
+get '/artists/search' do
+  @artist = Artist.search(params[:search])
+  erb(:'/artists/show')
+end
+
 get '/artists/new' do
   @albums = Album.all
   erb(:'artists/new')
@@ -24,6 +29,8 @@ get '/artists/:id' do
   erb(:'artists/show')
 end
 
+
+
 post '/artists/:id/delete' do
   Artist.destroy(params[:id])
   redirect to("/artists")
@@ -36,8 +43,10 @@ end
 
 post '/artists/:id' do
   @artist = Artist.update(params)
-  redirect to("/artists/#{params[:id]}")
+  erb("/artists/#{params[:id]}")
 end
+
+
 
 
 

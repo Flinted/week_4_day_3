@@ -2,8 +2,9 @@
 
 <% @albums.each do |album| %>
  <div class="order">
- <b>Name:</b>
- <p><%= album.name()%> by <%= album.artist.name()%></p>
- <a href="/albums/<%= album.id%>">View album</a>
+ <p><a href="/albums/<%=album.id%>"><%= album.name()%> by <%= album.artist.name()%></a></p>
+ <div class = "thumbnail_sizer"><img class = "thumbnail" src="<%=album.img%>"></div>
+ <a href="/albums/<%= album.id%>"></a>
+ <hr>
  </div>
 <%end%>

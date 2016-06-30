@@ -1,10 +1,8 @@
-
-<h1>Album name:</h1>
 <p><%=@album.name%></p>
-
+<div class = "thumbnail_sizer"><img class = "thumbnail" src="<%=@album.img%>"></div>
 <h1>Artist name:</h1>
-<p><%=@album.artist.name%></p>
-
+<h1><%=@album.artist.name%></h1>
+<hr>
 <a href="/albums/<%=@album.id%>/edit">Edit album </a>
 
 <form action="/albums/<%=@album.id%>/delete" method="post">

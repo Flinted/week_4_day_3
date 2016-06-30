@@ -2,9 +2,9 @@
 
 <% @artists.each do |artist| %>
  <div class="order">
- <b>Name:</b>
- <p><%= artist.name()%></p>
- <a href="/artists/<%= artist.id%>">View artist</a>
+ <p><a href="/artists/<%=artist.id%>"><%= artist.name()%></a></p>
+ <div class = "thumbnail_sizer"><img src="<%=artist.img%>"></div>
+ <hr>
  </div>
 <%end%>
 

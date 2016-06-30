@@ -1,4 +1,4 @@
-<h1>Edit album</h1>
+<h2>Edit album</h2>
 
 <form action="/albums/<%=@album.id%>" method="post">
  <label for="name">Name:</label>
@@ -10,6 +10,8 @@
    <option value="<%= artist.id %>" <%="selected = 'selected'" if @album.artist_id == artist.id%>><%= artist.name %></option>
  <% end %>
  </select>
-
+ <label for="img">Name:</label>
+ <input type="text" name="img" value="<%=@album.img%>" >
+<hr>
  <input type='submit' value="Update album">
 </form>

@@ -1,13 +1,21 @@
+<h1>Here is what we have:</h1>
 
 <% @artists.each do |artist| %>
 <div class="order">
- <b>Name:</b>
- <p><%= artist.name()%></p>
-
+ <h1><a href="/artists/<%=artist.id%>"><%= artist.name()%></a></h1>
+ <div class = "thumbnail_sizer"><img class = "thumbnail" src="<%=artist.img%>"></div>
+ <hr>
  <% albums = artist.albums() %>
  <% albums.each do |album|%>
- <%= album.name%>
- <br>
+
+ <div class = "thumbnail_sizer_mini"><a href="/albums/<%=album.id%>"><img class = "thumbnail" src="<%=album.img%>"></a></div>
  <%end%>
 </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <%end%>

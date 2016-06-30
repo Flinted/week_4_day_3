@@ -2,15 +2,16 @@ require( 'pry-byebug' )
 require_relative('../db/sql_runner')
 
 class Artist
-  attr_reader(:name, :id)
+  attr_reader(:name, :id, :img)
 
   def initialize(options)
     @name = options['name']
+    @img = options['img']
     @id = options['id'].to_i
   end
 
   def save()
-    sql = "INSERT INTO artists (name) VALUES ('#{@name}') RETURNING *"
+    sql = "INSERT INTO artists (name,img) VALUES ('#{@name}','#{@img}') RETURNING *"
     artist_data = run_sql(sql)
     @id = artist_data.first['id'].to_i
   end
@@ -44,8 +45,20 @@ class Artist
   def self.update(options)
     sql = "UPDATE artists SET
            name= '#{options['name']}'
+           img= '#{options['img']}'
            WHERE id = '#{options['id']}'"
        
     run_sql(sql)
+  end
+
+  def self.search(search)
+    sql = "SELECT * FROM artists WHERE artists.name = '#{search}'"
+    search_result = run_sql(sql)
+    # if search_result == nil
+    #   return false
+    # else
+      result = Artist.new(search_result.first)
+      return result
+    # end
   end
 end
