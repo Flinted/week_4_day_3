@@ -51,12 +51,10 @@ class Artist
     run_sql(sql)
   end
 
-  def self.search(search)
+  def self.search(search = nil)
+    # if search.to_s == nil || search == ""
     sql = "SELECT * FROM artists WHERE artists.name = '#{search}'"
     search_result = run_sql(sql)
-    # if search_result == nil
-    #   return false
-    # else
       result = Artist.new(search_result.first)
       return result
     # end

@@ -6,19 +6,19 @@
   <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
 </head>
 <body>
-<div id ="navbar">
-<div class ="button"><a href="/library">View library</a></div>
-<div class ="button"><a href="/artists">View artists</a></div>
-<div class ="button"><a href="/albums">View albums</a></div>
-<div class ="button"><a href="/artists/new">Add artist</a></div>
-<div class ="button"><a href="/albums/new">Add album</a></div>
+  <div id ="navbar">
+    <div class ="button"><a href="/library">View library</a></div>
+    <div class ="button"><a href="/artists">View artists</a></div>
+    <div class ="button"><a href="/albums">View albums</a></div>
+    <div class ="button"><a href="/artists/new">Add artist</a></div>
+    <div class ="button"><a href="/albums/new">Add album</a></div>
 
-<form action="/artists/search" method="get">
-<label for="search">Search by artist</label>
-<input type="text" name="search" placeholder="Search..">
-<input type="submit" value="Search">
-</form>
-</div>
+    <form action="/artists/search" method="get">
+      <label for="search">Search by artist</label>
+      <input type="text" name="search" placeholder="Search..">
+      <input type="submit" value="Search">
+    </form>
+  </div>
   <div id= "content"><%=yield%></div>
 </body>
 </html>
